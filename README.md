@@ -19,10 +19,10 @@ Cette couche ne fournit **que bash** (meme source bash 5.3p9, deux binaires : EL
 ## Boot teste avec succes (QEMU, TCG, sans KVM)
 
 ### Login automatique + MOTD
-![Login automatique](captures/01-login-boot.png)
+![Login automatique](captures/test/01-login-boot.png)
 
 ### dawin-bash fonctionnel
-![dawin-bash --version](captures/02-dawin-bash-version.png)
+![dawin-bash --version](captures/test/02-dawin-bash-version.png)
 
 Non teste sur materiel reel.
 
@@ -51,13 +51,13 @@ Comparatif avec le tableau de [linux-dawin-bash](https://github.com/Leo-76/linux
 
 A retenir : les commandes POSIX generiques (`uname`, `df`, `ls`, `ps`, `sed` GNU) marchent nativement sur Stinux. Les commandes **specifiques a Darwin/BSD** (`sysctl` syntaxe BSD, `launchctl`, `ifconfig` legacy, `brew`, `port`) n'existent pas sur Linux : `dawin-bash` choisit le bon binaire bash, il ne simule pas le reste de l'environnement Darwin.
 
-![Comparatif uname/readlink/file/sed/ls](captures/03-commandes-comparaison-uname-sed.png)
-![uname -a/-s/-r + sysctl absent](captures/04-uname-sysctl.png)
-![df -h](captures/05-df-h.png)
-![ls / + ifconfig absent](captures/06-ls-ifconfig.png)
-![launchctl absent](captures/07-launchctl-absent.png)
-![brew/port absents](captures/08-brew-port-absents.png)
-![mount + sysctl hw.* absent](captures/09-mount-sysctl-hw.png)
+![Comparatif uname/readlink/file/sed/ls](captures/test/03-commandes-comparaison-uname-sed.png)
+![uname -a/-s/-r + sysctl absent](captures/test/04-uname-sysctl.png)
+![df -h](captures/test/05-df-h.png)
+![ls / + ifconfig absent](captures/test/06-ls-ifconfig.png)
+![launchctl absent](captures/test/07-launchctl-absent.png)
+![brew/port absents](captures/test/08-brew-port-absents.png)
+![mount + sysctl hw.* absent](captures/test/09-mount-sysctl-hw.png)
 
 ## Outils de developpement
 
@@ -75,8 +75,8 @@ Identique sous le bash systeme Linux et sous `dawin-bash` (meme PATH, `dawin-bas
 
 Bon jeu de base pour scripter/cloner/deployer, mais pas de compilation (`gcc`/`make`) ni Node.js de base : a installer via `apt install build-essential nodejs` si besoin.
 
-![which gcc git python3 make curl node ssh](captures/10-outils-dev-which.png)
-![versions git/python3/curl](captures/11-git-python3-curl-versions.png)
+![which gcc git python3 make curl node ssh](captures/test/10-outils-dev-which.png)
+![versions git/python3/curl](captures/test/11-git-python3-curl-versions.png)
 
 ## Telechargement
 
