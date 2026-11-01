@@ -94,6 +94,12 @@ Captures : `captures/test/12` a `15`.
 
 Absents, logiquement : ce sont des gestionnaires d'autres distributions (Arch/Manjaro, openSUSE, Alpine, Fedora/RHEL), pas de Debian. Capture : `captures/test/16`.
 
+## Variante avec installateur macOS Sequoia embarque
+
+Une variante de l'ISO (`stinux-sequoia.iso`, 16 Go) embarque en plus `SharedSupport.dmg` (installateur macOS Sequoia 15.8.2, 15,6 Go) a la racine de l'ISO. Pas bootable via OpenCore, juste present sur le disque : accessible une fois booté a `/run/live/medium/macos-installer/SharedSupport.dmg`. Recette complete et details techniques dans [BASH-PACKAGE](https://github.com/Leo-76/BASH-PACKAGE).
+
+![Boot teste avec installateur Sequoia present](captures/test/18-sequoia-installer-boot-test.png)
+
 Toutes les captures detaillees sont dans [`captures/test/`](captures/test).
 
 ## Telechargement
