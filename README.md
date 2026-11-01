@@ -40,6 +40,7 @@ Comparatif avec le tableau de [linux-dawin-bash](https://github.com/Leo-76/linux
 | `sed --version` | echoue (BSD) | echoue | marche (`GNU sed 4.9`) |
 | `ls --color /tmp` | marche | marche | marche |
 | `df -h` | marche | marche | marche |
+| `mount` | marche | marche | marche |
 | `ls /` | marche | marche | marche |
 | `sysctl kern.version` / `hw.*` / `machdep.cpu.*` | marche (BSD sysctl) | marche | absent (`command not found`) |
 | `ifconfig` | marche (legacy) | marche | absent (remplace par `ip` sur Debian moderne) |
@@ -56,6 +57,7 @@ A retenir : les commandes POSIX generiques (`uname`, `df`, `ls`, `ps`, `sed` GNU
 ![ls / + ifconfig absent](captures/06-ls-ifconfig.png)
 ![launchctl absent](captures/07-launchctl-absent.png)
 ![brew/port absents](captures/08-brew-port-absents.png)
+![mount + sysctl hw.* absent](captures/09-mount-sysctl-hw.png)
 
 ## Telechargement
 
