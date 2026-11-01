@@ -1,0 +1,33 @@
+name: Test apt install xfce4 (reseau reel)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test-xfce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer QEMU + pexpect
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-system-x86 qemu-utils python3-pexpect
+
+      - name: Telecharger l'ISO (release)
+        run: |
+          curl -L -o stinux-dawin-bash.iso.xz \
+            https://github.com/Leo-76/stinux-dawin-bash/releases/latest/download/stinux-dawin-bash.iso.xz
+          unxz stinux-dawin-bash.iso.xz
+          ls -lh stinux-dawin-bash.iso
+
+      - name: Boot QEMU et tester apt install xfce4
+        run: python3 test/boot_test_xfce.py | tee serial.log
+
+      - name: Upload du log serie
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qemu-serial-log
+          path: serial.log
