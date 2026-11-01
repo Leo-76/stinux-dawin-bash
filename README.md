@@ -26,6 +26,37 @@ Cette couche ne fournit **que bash** (meme source bash 5.3p9, deux binaires : EL
 
 Non teste sur materiel reel.
 
+## Commandes macOS/PureDarwin testees sur Stinux
+
+Comparatif avec le tableau de [linux-dawin-bash](https://github.com/Leo-76/linux-dawin-bash) (macOS iMac / PureDarwin minimal) :
+
+| Commande | macOS (iMac) | PureDarwin (minimal) | StinuxOS + dawin-bash |
+|---|---|---|---|
+| `uname -o` | echoue (BSD) | echoue (BSD) | marche (`GNU/Linux`) |
+| `uname -sm` | `Darwin x86_64` | `Darwin x86_64` | `Linux x86_64` |
+| `uname -a` / `-s` / `-r` | - | - | marche |
+| `readlink -f /tmp` | `/private/tmp` | `/tmp` | `/tmp` |
+| `file /bin/ls` | marche (Mach-O) | absent | absent |
+| `sed --version` | echoue (BSD) | echoue | marche (`GNU sed 4.9`) |
+| `ls --color /tmp` | marche | marche | marche |
+| `df -h` | marche | marche | marche |
+| `ls /` | marche | marche | marche |
+| `sysctl kern.version` / `hw.*` / `machdep.cpu.*` | marche (BSD sysctl) | marche | absent (`command not found`) |
+| `ifconfig` | marche (legacy) | marche | absent (remplace par `ip` sur Debian moderne) |
+| `launchctl list` | marche (launchd) | marche | absent (equivalent Linux : `systemctl`) |
+| `ps aux` | marche | marche | marche |
+| `brew install ...` | marche (natif) | absent | absent |
+| `port install ...` | marche (natif) | absent | absent |
+
+A retenir : les commandes POSIX generiques (`uname`, `df`, `ls`, `ps`, `sed` GNU) marchent nativement sur Stinux. Les commandes **specifiques a Darwin/BSD** (`sysctl` syntaxe BSD, `launchctl`, `ifconfig` legacy, `brew`, `port`) n'existent pas sur Linux : `dawin-bash` choisit le bon binaire bash, il ne simule pas le reste de l'environnement Darwin.
+
+![Comparatif uname/readlink/file/sed/ls](captures/03-commandes-comparaison-uname-sed.png)
+![uname -a/-s/-r + sysctl absent](captures/04-uname-sysctl.png)
+![df -h](captures/05-df-h.png)
+![ls / + ifconfig absent](captures/06-ls-ifconfig.png)
+![launchctl absent](captures/07-launchctl-absent.png)
+![brew/port absents](captures/08-brew-port-absents.png)
+
 ## Telechargement
 
 Voir la [release](../../releases/latest) pour l'image ISO complete.
