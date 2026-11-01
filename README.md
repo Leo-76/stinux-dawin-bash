@@ -35,7 +35,7 @@ Le noyau Linux ne sait pas charger un binaire Mach-O (format different de l'ELF 
 ![Login automatique](captures/01-login-boot.png)
 
 ### dawin-bash fonctionnel
-![dawin-bash --version](captures/02-dawin-bash-version.png)
+![dawin-bash --version](captures/test/02-dawin-bash-version.png)
 
 Non teste sur materiel reel.
 
