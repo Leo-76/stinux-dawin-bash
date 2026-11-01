@@ -78,6 +78,25 @@ Bon jeu de base pour scripter/cloner/deployer, mais pas de compilation (`gcc`/`m
 ![which gcc git python3 make curl node ssh](captures/test/10-outils-dev-which.png)
 ![versions git/python3/curl](captures/test/11-git-python3-curl-versions.png)
 
+## Installation XFCE (apt install)
+
+Stinux etant base sur Debian (bookworm), seule la commande Debian/APT du [tableau combine](https://github.com/Leo-76/BASH-BUILD-OSX) s'applique : `sudo apt install xfce4 xfce4-goodies`. Identique sous le bash systeme et sous `dawin-bash`.
+
+- `sudo apt update` : echoue dans mon environnement de test (DNS bloque par le proxy du sandbox cloud, pas un defaut de Stinux)
+- `sudo apt install -s xfce4 xfce4-goodies` (simulation) : **reussit completement**, resout tous les paquets XFCE (~1000+) grace au cache embarque dans l'ISO, meme hors ligne
+- `sudo apt install -y xfce4` (installation reelle) : la resolution de paquets marche, mais le telechargement echoue faute de reseau sortant depuis mon environnement (`Could not resolve 'deb.debian.org'`) — fonctionnerait avec un acces internet normal
+
+![apt update : DNS bloque](captures/test/12-apt-update-dns-echoue.png)
+![apt install -s xfce4 xfce4-goodies : simulation reussie](captures/test/13-apt-install-s-xfce4-simulation.png)
+![apt install -s xfce4 sous dawin-bash : identique](captures/test/14-apt-install-s-dawin-bash.png)
+![apt install -y xfce4 reel : echoue faute de reseau](captures/test/15-apt-install-reel-echoue-reseau.png)
+
+### Autres gestionnaires de paquets (pacman, zypper, apk, dnf...)
+
+Absents, logiquement : ce sont des gestionnaires d'autres distributions (Arch/Manjaro, openSUSE, Alpine, Fedora/RHEL), pas de Debian.
+
+![pacman/zypper/apk/dnf/yum/emerge absents](captures/test/16-pacman-zypper-apk-dnf-absents.png)
+
 ## Telechargement
 
 Voir la [release](../../releases/latest) pour l'image ISO complete.
