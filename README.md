@@ -32,10 +32,10 @@ Le noyau Linux ne sait pas charger un binaire Mach-O (format different de l'ELF 
 ## Boot teste avec succes (QEMU, TCG, sans KVM)
 
 ### Login automatique + MOTD
-![Login automatique](captures/test/01-login-boot.png)
+![Login automatique](captures/01-login-boot.png)
 
 ### dawin-bash fonctionnel
-![dawin-bash --version](captures/test/02-dawin-bash-version.png)
+![dawin-bash --version](captures/02-dawin-bash-version.png)
 
 Non teste sur materiel reel.
 
