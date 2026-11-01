@@ -16,6 +16,19 @@ Pivot depuis le projet [PureDarwin/XNU](https://github.com/Leo-76/BASH-BUILD-OSX
 
 Cette couche ne fournit **que bash** (meme source bash 5.3p9, deux binaires : ELF pour Linux, Mach-O pour Darwin/PureDarwin, choisis par un lanceur selon `uname`). Les autres commandes (`sed`, `stat`, `tar`, etc.) restent celles de Debian/GNU-Linux : ce n'est pas une couche de compatibilite complete des commandes macOS.
 
+### Le binaire Mach-O ne s'execute pas sur Linux (attendu)
+
+Executer directement `bash.darwin-x86_64` (le binaire Mach-O, prevu pour Darwin/PureDarwin) sur StinuxOS echoue, logiquement :
+
+```
+$ ./bash.darwin-x86_64 --version
+-bash: ./bash.darwin-x86_64: cannot execute binary file: Exec format error
+```
+
+Le noyau Linux ne sait pas charger un binaire Mach-O (format different de l'ELF attendu). C'est exactement pour ca que le lanceur `/opt/linux-dawin-bash/bash` (et `dawin-bash`) detecte `uname -sm` et choisit automatiquement le bon binaire (`bash.linux-x86_64` ici) : la couche de compatibilite se situe au niveau du lanceur, pas dans un seul binaire universel.
+
+![Exec format error sur bash.darwin-x86_64](captures/test/17-bash-darwin-exec-format-error.png)
+
 ## Boot teste avec succes (QEMU, TCG, sans KVM)
 
 ### Login automatique + MOTD
