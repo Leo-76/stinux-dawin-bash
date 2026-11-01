@@ -59,6 +59,25 @@ A retenir : les commandes POSIX generiques (`uname`, `df`, `ls`, `ps`, `sed` GNU
 ![brew/port absents](captures/08-brew-port-absents.png)
 ![mount + sysctl hw.* absent](captures/09-mount-sysctl-hw.png)
 
+## Outils de developpement
+
+Identique sous le bash systeme Linux et sous `dawin-bash` (meme PATH, `dawin-bash` ne fait que choisir le binaire bash) :
+
+| Outil | Present | Version |
+|---|---|---|
+| `git` | oui | 2.39.5 |
+| `python3` | oui | 3.11.2 |
+| `curl` | oui | 7.88.1 (HTTPS/SSL complet) |
+| `ssh` | oui | OpenSSH |
+| `gcc` | non | absent |
+| `make` | non | absent |
+| `node` | non | absent |
+
+Bon jeu de base pour scripter/cloner/deployer, mais pas de compilation (`gcc`/`make`) ni Node.js de base : a installer via `apt install build-essential nodejs` si besoin.
+
+![which gcc git python3 make curl node ssh](captures/10-outils-dev-which.png)
+![versions git/python3/curl](captures/11-git-python3-curl-versions.png)
+
 ## Telechargement
 
 Voir la [release](../../releases/latest) pour l'image ISO complete.
