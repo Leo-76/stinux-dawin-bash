@@ -1,0 +1,2 @@
+Darwin 10 (Mac OS X 10.6.8) - sources Apple open source
+xnu-1504.15.3 Libc-594.9.5 Libsystem-125.2.11 dyld-132.13 launchd-258.25 bash-86.1 Csu-79 cctools-806
